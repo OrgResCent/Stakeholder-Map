@@ -22,6 +22,7 @@
 		<script src="Leaflet/leaflet.js"></script>
         <script src="Leaflet/leaflet-providers.js"></script>
 		<script src="js/leaflet.extra-markers.min.js"></script>
+		
 
 	</head>
 	<body class="is-preload">
@@ -40,25 +41,8 @@
                                     <p class="map">This map features the locations of <span style="color:#783f04">Soil Scientists</span>, <span style="color:#6aa84f">Plant Scientists</span>, <span style="color:#e69138">Farmers</span>, <span style="color:#ffd966">Social Scientists</span>, <span style="color:#3d85c6">Agronomist Advisors</span>, and <span style="color:#674ea7">Projects</span>. More details can be brought up by clicking on the icon.</p>
                                         <div id="map"></div>
                                         <script>
-                                       var map = L.map('map').setView([52.740727,-1.375032], 6);
-                                          L.tileLayer("http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png", {
-                                              attribution: "© OpenMapTiles"
-                                          }).addTo(map)
-                                         L.tileLayer("http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png").addTo(map);
-                                            
-                                      
-                                            
-                                        // var MapIcon = L.Icon.extend({
-                                        //     options: {
-                                        //         shadowURL:"/Leaflet/images/marker-shadow.png",
-                                        //         iconSize:     [30, 50],
-                                        //         shadowSize:   [50, 64],
-                                        //         iconAnchor:   [12, 40],
-                                        //         shadowAnchor: [0, 0],
-                                        //         popupAnchor:  [0, -35]
-                                        //     }
-                                        // });
-										// People catagories: Soil Scientist, Plant Scientist, Farmer, Agronomist Advisor, Social Scientists Project
+                                       
+										// People catagories: Soil Scientist, Plant Scientist, Farmer, Agronomist Advisor, Social Scientists, Project
 										
   										var SoilMarker = L.ExtraMarkers.icon({
     									icon: 'fa-map-marker-alt',
@@ -109,52 +93,59 @@
 										svg: true
   										});
 
-										// Name, organisation, link to project page
+									// 	// Name, organisation, link to project page
 
-  										L.marker([53.80796,-1.55333], {icon: SoilMarker}).addTo(map).bindPopup('<b>Pippa Chapman</b><br>Soil Scientist<br>Professor<br>University of Leeds');
-										L.marker([54.98904,-1.70901], {icon: SoilMarker}).addTo(map).bindPopup('<b>Julia Cooper</b><br>Soil Scientist<br>Head of Research<br>Organic Research Centre');
-										L.marker([52.77963,-2.42593], {icon: PlantMarker}).addTo(map).bindPopup('<b>Ed Dickin</b><br>Plant Scientist<br>Lecturer in Crop Physiology<br>Harper Adams University');
-										L.marker([52.77991,-2.42556], {icon: SoilMarker}).addTo(map).bindPopup('<b>Samuel Eze</b><br>Soil Scientist<br>Lecturer<br>Harper Adams University');
-										L.marker([55.59033,-2.25308], {icon: FarmerMarker}).addTo(map).bindPopup('<b>Tom Fairfax</b><br>Farmer<br>Mindrum Estate');
-										L.marker([53.84847,-1.04148], {icon: FarmerMarker}).addTo(map).bindPopup('<b>Angus Gowthorpe</b><br>Farmer<br>Approach Farm');
-										L.marker([52.06982,-0.63080], {icon: SoilMarker}).addTo(map).bindPopup('<b>Jackqueline Hannam</b><br>Soil Scientist<br>Leader of Soil Informatics and LandIS Team<br>Cranfield University');
-										L.marker([52.19529,0.12828], {icon: PlantMarker}).addTo(map).bindPopup('<b>Henrik Jonsson</b><br>Plant Scientist<br>Director of the Sainsburt Labroatory and Professor of Computational Morphodynamics<br>Sainsbury Laboratory');
-										L.marker([51.07870,-1.57274], {icon: FarmerMarker}).addTo(map).bindPopup('<b>Craig Livingstone</b><br>Farmer<br>Farm manager/advisor<br>Lockerley and Preston Candover Farms');
-										L.marker([51.70951,-1.99492], {icon: SocialMarker}).addTo(map).bindPopup('<b>Tom MacMillan</b><br>Social Scientist<br>Elizabeth Creek Chair in Rural Policy and Strategy<br>Royal Agricultural University');
-										L.marker([50.76949,-3.90128], {icon: SoilMarker}).addTo(map).bindPopup('<b>Andy Neal</b><br>Soil Scientist<br>Senior Research Scientist<br>Rothamsted Research (North Wyke)');
-										L.marker([52.22423,0.096532], {icon: PlantMarker}).addTo(map).bindPopup('<b>Giles Oldroyd</b><br>Plant Scientist<br>Director, Crop Science Centre<br>The Crop Science Centre');
-										L.marker([52.89273,0.49900], {icon: AgronomistMarker}).addTo(map).bindPopup('<b>Nick Padwick</b><br>Agronomist Advisor<br>Farm manager/advisor<br>Wild Ken Hill');
-										L.marker([53.80581,-1.55419], {icon: SoilMarker}).addTo(map).bindPopup('<b>Ruth Wade</b><br>Soil Scientist<br>Research Associate<br>University of Leeds');
-										L.marker([55.80469,-2.10313], {icon: FarmerMarker}).addTo(map).bindPopup('<b>Denise Walton</b><br>Farmer<br>Peelham Farm');
-										L.marker([51.66970,-2.10982], {icon: ProjectMarker}).addTo(map).bindPopup('<b>The GREAT Project</b><br>Farming Wildlife & Advisory Group Southwest (FWAGSW)<br>Beatrix Oliver<br><a href="https://www.greatglos.co.uk/"target="_blank" rel="noopener noreferrer">Link</a>');
-										L.marker([52.61344,-0.83608], {icon: ProjectMarker}).addTo(map).bindPopup('<b>The Allerton Project</b><br>Game and Wildlife Conservation Trust<br>Alastair Leake<br><a href="https://www.allertontrust.org.uk/"target="_blank" rel="noopener noreferrer">Link</a>');
-										L.marker([53.80796,-1.55333], {icon: ProjectMarker}).addTo(map).bindPopup('<b>Fix Our Food</b><br>York University<br><a href="https://fixourfood.org/"target="_blank" rel="noopener noreferrer">Link</a>');
-										L.marker([52.78101,-2.42667], {icon: ProjectMarker}).addTo(map).bindPopup('<b>Scope of Regenerative Practices in the UK</b><br>Samuel Eze<br>Harper Adams University<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
-										L.marker([53.80668,-1.55581], {icon: ProjectMarker}).addTo(map).bindPopup('<b>Quantifying the Potential for Regenerative Agriculture to Contribute to Net-Zero in the UK</b><br>David Williams<br>University of Leeds<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
-										L.marker([54.98032,-1.61571], {icon: ProjectMarker}).addTo(map).bindPopup('<b>Regenerative Agriculture and Net-Zero: mapping the evidence</b><br>Richard Francksen<br>Newcastle University<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
-
+  										var PippaChapman = L.marker([53.80796,-1.55333], {icon: SoilMarker}).bindPopup('<b>Pippa Chapman</b><br>Soil Scientist<br>Professor<br>University of Leeds');
+										var JuliaCooper = L.marker([54.98904,-1.70901], {icon: SoilMarker}).bindPopup('<b>Julia Cooper</b><br>Soil Scientist<br>Head of Research<br>Organic Research Centre');
+										var EdDickin = L.marker([52.77963,-2.42593], {icon: PlantMarker}).bindPopup('<b>Ed Dickin</b><br>Plant Scientist<br>Lecturer in Crop Physiology<br>Harper Adams University');
+										var SamuelEze = L.marker([52.77991,-2.42556], {icon: SoilMarker}).bindPopup('<b>Samuel Eze</b><br>Soil Scientist<br>Lecturer<br>Harper Adams University');
+										var TomFairfax = L.marker([55.59033,-2.25308], {icon: FarmerMarker}).bindPopup('<b>Tom Fairfax</b><br>Farmer<br>Mindrum Estate');
+										var AngusGowthorpe = L.marker([53.84847,-1.04148], {icon: FarmerMarker}).bindPopup('<b>Angus Gowthorpe</b><br>Farmer<br>Approach Farm');
+										var JackquelineHannam = L.marker([52.06982,-0.63080], {icon: SoilMarker}).bindPopup('<b>Jackqueline Hannam</b><br>Soil Scientist<br>Leader of Soil Informatics and LandIS Team<br>Cranfield University');
+										var HenrikJonsson = L.marker([52.19529,0.12828], {icon: PlantMarker},).bindPopup('<b>Henrik Jonsson</b><br>Plant Scientist<br>Director of the Sainsburt Labroatory and Professor of Computational Morphodynamics<br>Sainsbury Laboratory');
+										var CraigLivingstone = L.marker([51.07870,-1.57274], {icon: FarmerMarker}).bindPopup('<b>Craig Livingstone</b><br>Farmer<br>Farm manager/advisor<br>Lockerley and Preston Candover Farms');
+										var TomMacMillan = L.marker([51.70951,-1.99492], {icon: SocialMarker}).bindPopup('<b>Tom MacMillan</b><br>Social Scientist<br>Elizabeth Creek Chair in Rural Policy and Strategy<br>Royal Agricultural University');
+										var AndyNeal = L.marker([50.76949,-3.90128], {icon: SoilMarker}).bindPopup('<b>Andy Neal</b><br>Soil Scientist<br>Senior Research Scientist<br>Rothamsted Research (North Wyke)');
+										var GilesOldroyd = L.marker([52.22423,0.096532], {icon: PlantMarker}).bindPopup('<b>Giles Oldroyd</b><br>Plant Scientist<br>Director, Crop Science Centre<br>The Crop Science Centre');
+										var NickPadwick = L.marker([52.89273,0.49900], {icon: AgronomistMarker}).bindPopup('<b>Nick Padwick</b><br>Agronomist Advisor<br>Farm manager/advisor<br>Wild Ken Hill');
+										var RuthWade = L.marker([53.80581,-1.55419], {icon: SoilMarker}).bindPopup('<b>Ruth Wade</b><br>Soil Scientist<br>Research Associate<br>University of Leeds');
+										var DeniseWalton = L.marker([55.80469,-2.10313], {icon: FarmerMarker}).bindPopup('<b>Denise Walton</b><br>Farmer<br>Peelham Farm');
+										var GREAT = L.marker([51.66970,-2.10982], {icon: ProjectMarker}).bindPopup('<b>The GREAT Project</b><br>Farming Wildlife & Advisory Group Southwest (FWAGSW)<br>Beatrix Oliver<br><a href="https://www.greatglos.co.uk/"target="_blank" rel="noopener noreferrer">Link</a>');
+										var Allerton = L.marker([52.61344,-0.83608], {icon: ProjectMarker}).bindPopup('<b>The Allerton Project</b><br>Game and Wildlife Conservation Trust<br>Alastair Leake<br><a href="https://www.allertontrust.org.uk/"target="_blank" rel="noopener noreferrer">Link</a>');
+										var FixOurFood = L.marker([53.80796,-1.55333], {icon: ProjectMarker}).bindPopup('<b>Fix Our Food</b><br>York University<br><a href="https://fixourfood.org/"target="_blank" rel="noopener noreferrer">Link</a>');
+										var SRPUK = L.marker([52.78101,-2.42667], {icon: ProjectMarker}).bindPopup('<b>Scope of Regenerative Practices in the UK</b><br>Samuel Eze<br>Harper Adams University<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
+										var QPRACNZ = L.marker([53.80668,-1.55581], {icon: ProjectMarker}).bindPopup('<b>Quantifying the Potential for Regenerative Agriculture to Contribute to Net-Zero in the UK</b><br>David Williams<br>University of Leeds<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
+										var RANZ = L.marker([54.98032,-1.61571], {icon: ProjectMarker}).bindPopup('<b>Regenerative Agriculture and Net-Zero: mapping the evidence</b><br>Richard Francksen<br>Newcastle University<br><a href="https://www.agrifood4netzero.net/2023-funded-scoping-studies.html"target="_blank" rel="noopener noreferrer">Link</a>');
 										
-                                            // var redIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-red.png"});
-                                            // L.marker([53.238714, -4.019243], {icon: redIcon}).addTo(map).bindPopup('<b>Henfaes Research Farm</b><br>Owned and maintained by Bangor University, Henfaes features a 30-year old agroforestry system of clustered trees in a silvopasture. <p> The species involved include:<li>Alder</li><li>Conifer</li><li>Sycamore</li></p><p>Find more about the project <a href="https://www.bangor.ac.uk/natural-sciences/research/environment-natural-resources-and-geography/facilities/henfaes.php.en" target="_blank" rel="noopener noreferrer">here.</a>');
-                                            
-                                            // var redIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-red.png"});
-                                            // L.marker([51.873588,-1.5815468], {icon: redIcon}).addTo(map).bindPopup('<b>Farm-Ed</b><br>Silvoarable, silvopasture, silvohorticulture, orchard under grazing, hedgerows, farm woodland<p> The species involved include:<li>Willow</li><li>Poplar</li><li>Sweet Chestnut</li><li>Hazel</li><li>Alder</li><li>Rowan</li><li>Field Maple</li><li>Sycamore</li></p><p>Find more about the project <a href="https://www.farm-ed.co.uk/" target="_blank" rel="noopener noreferrer">here.</a>');
-                                            
-                                            // var redIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-red.png"});
-                                            // L.marker([51.9264104,-1.7483873], {icon: redIcon}).addTo(map).bindPopup('<b>Fir Farm Ltd</b><br>Hedgerows, nuttery, orchard, sheep grazing, woodland<br>Find more about the project <a href="https://firfarm.co.uk" target="_blank" rel="noopener noreferrer">here.</a>');
-                                            
-                                            // var redIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-red.png"});
-                                            // L.marker([51.9290621,-1.6427288], {icon: redIcon}).addTo(map).bindPopup('<b>Daylseford Organics</b><br>Silvopoultry, orchard<br>Find more about the project <a href="https://www.daylesford.com/" target="_blank" rel="noopener noreferrer">here.</a>');
-                                            
-                                            // var redIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-red.png"});
-                                            // L.marker([51.7316558,-1.9387351], {icon: redIcon}).addTo(map).bindPopup('<b>Abbey Home Farm</b><br>Silvohorticulture<br>Find more about the project <a href="https://www.theorganicfarmshop.co.uk/farm/" target="_blank" rel="noopener noreferrer">here.</a>');
-                                            
-                                            // var blueIcon = new MapIcon({iconUrl: "/Leaflet/images/icon-blue.png"});
-                                            // L.marker([53.230014, -4.103388], {icon: blueIcon}).addTo(map).bindPopup("I am an agroforestry consultant Icon");
-                                            
-                                            // var yellowIcon =new MapIcon({iconUrl: "/Leaflet/images/icon-yellow.png"});
-                                            // L.marker([53.176323, -4.058316], {icon: yellowIcon}).addTo(map).bindPopup("I am an agroforestry associate icon.");
-                                        </script>
+										var SoilScientists = L.layerGroup([PippaChapman, JuliaCooper, SamuelEze, JackquelineHannam, AndyNeal, RuthWade]);
+										var PlantScientists = L.layerGroup([EdDickin, HenrikJonsson, GilesOldroyd])
+										var Farmers = L.layerGroup([TomFairfax, AngusGowthorpe, CraigLivingstone, DeniseWalton])
+										var AgronomistAdvisors = L.layerGroup([NickPadwick])
+										var SocialScientists = L.layerGroup([TomMacMillan])
+										var Projects = L.layerGroup([GREAT, Allerton, FixOurFood, SRPUK, QPRACNZ, RANZ])
+
+										var osm = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+										maxZoom: 19,
+										attribution: '© OpenStreetMap'
+										});
+
+										var map = L.map('map', {
+										center: [52.740727,-1.375032],
+										zoom: 6,
+										layers: [osm, SoilScientists, PlantScientists, Farmers, AgronomistAdvisors, SocialScientists, Projects]
+										});
+
+										var overlayMaps = {
+										"Soil Scientists": SoilScientists,
+										"Plant Scientists": PlantScientists,
+										"Farmers": Farmers,
+										"Agronomist Advisors": AgronomistAdvisors,
+										"Social Scientists": SocialScientists,
+										"Projects": Projects
+										};
+
+										var layerControl = L.control.layers(null, overlayMaps).addTo(map);
+										</script>
 
 								</section>
 
